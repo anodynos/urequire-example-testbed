@@ -4,7 +4,7 @@
 }});
 
 
-define(['./models/Person'], function (Person) {
+define(['models/Person'], function (Person) {
     var add = require('calc/add');
 
     var person = new Person('John', 'Doe');
@@ -16,7 +16,10 @@ define(['./models/Person'], function (Person) {
 
     var homeTemplate = require('markup/home');
 
-    if (__isNode) {require('util')}
+    if (__isNode) {
+        var nodeOnlyVar = require('nodeOnly/runsOnlyOnNode');
+        console.log(require('util').inspect(nodeOnlyVar));
+    }
 
     return _.clone({ // _ is injected by uRequire in the whole bundle
         person: person,

@@ -32,12 +32,15 @@ module.exports = gruntFunction = (grunt) ->
           dependencies:
             imports:
               lodash: ['_']
+
+            node: ['nodeOnly/*']
+            #paths:
             bower: true
 
         build:
-          verbose: false
+#          verbose: false
 #          debugLevel: 100
-          clean: true
+#          clean: true
           template:
             banner: """
              /**
@@ -78,7 +81,7 @@ module.exports = gruntFunction = (grunt) ->
         rjs: preserveLicenseComments: false
 
       spec:
-#        debugLevel: 30
+#        debugLevel: 100
         derive: []
         path: "#{sourceSpecDir}"
         copy: [/./]
@@ -90,7 +93,7 @@ module.exports = gruntFunction = (grunt) ->
             lodash: ['_']
             uberscore: '_B'
             'urequire-example': ['uEx']
-            'helpers/specHelpers': 'spH'
+            'specHelpers': 'spH'
 
           paths:
             teacup: ["node_modules/teacup/lib/teacup"] # missing from bower
@@ -101,7 +104,7 @@ module.exports = gruntFunction = (grunt) ->
           [ '+inject-_B.logger', ['**/*.js'], (m)-> m.beforeBody = "var l = new _B.Logger('#{m.dstFilename}');"]
 
           ['import',
-              'helpers/specHelpers': [ 'tru', ['equal', 'eq'], 'fals' ]
+              'specHelpers': [ 'tru', ['equal', 'eq'], 'fals' ]
               'lodash': [ 'isFunction' ]  # just for test
               'chai': ['expect']
           ]
