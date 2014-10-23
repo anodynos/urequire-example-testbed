@@ -19,7 +19,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git://github.com/anodynos/urequire-example"
+    "url": "https://github.com/anodynos/urequire-example"
   },
   "bugs": {
     "url": "git://github.com/anodynos/urequire-example/issues",
@@ -33,6 +33,7 @@
     "node": ">=0.10"
   },
   "dependencies": {
+    "grunt": "^0.4.5",
     "lodash": "*",
     "teacup": "*"
   },

@@ -32,26 +32,16 @@ module.exports = gruntFunction = (grunt) ->
           dependencies:
             imports:
               lodash: ['_']
-
             node: ['nodeOnly/*']
-            #paths:
-            bower: true
+            paths:
+              bower: true
 
         build:
+          template: banner: true
+          afterBuild :(err, bb)-> lastLibBB = if err then null else bb
 #          verbose: false
 #          debugLevel: 100
 #          clean: true
-          template:
-            banner: """
-             /**
-              * #{ pkg.name } - version #{ pkg.version }
-              * Compiled on #{ grunt.template.today("yyyy-mm-dd h:MM:ss") }
-              * #{ pkg.repository.url }
-              * Copyright(c) #{ grunt.template.today("yyyy") } #{ pkg.author.name } (#{ pkg.author.email } )
-              * Licensed #{ pkg.licenses[0].type } #{ pkg.licenses[0].url }
-              */\n"""
-          
-          afterBuild :(err, bb)-> lastLibBB = if err then null else bb
 
       UMD:
         template: 'UMDplain'
@@ -85,7 +75,7 @@ module.exports = gruntFunction = (grunt) ->
         derive: []
         path: "#{sourceSpecDir}"
         copy: [/./]
-        dstPath: "#{buildSpecDir}"
+        dstPath: "#{buildSpecDir}/some/nested/long/path"
 
         dependencies:
           imports:
@@ -96,9 +86,10 @@ module.exports = gruntFunction = (grunt) ->
             'specHelpers': 'spH'
 
           paths:
-            teacup: ["node_modules/teacup/lib/teacup"] # missing from bower
+            override:
+              teacup: ["node_modules/teacup/lib/teacup"] # missing from bower
 
-          bower: true
+            bower: true
 
         resources: [
           [ '+inject-_B.logger', ['**/*.js'], (m)-> m.beforeBody = "var l = new _B.Logger('#{m.dstFilename}');"]
@@ -118,11 +109,12 @@ module.exports = gruntFunction = (grunt) ->
                 window.urequireExample = 'Old global `urequireExample`';
                 window.uEx = 'Old global `uEx`';
               """
+              debugLevel: 100
             )
 
       specMin:
         derive: ['spec']
-        dstPath: "#{buildSpecDir}_combined/index-combined.js"
+        dstPath: "#{buildSpecDir}_combined/some/nested/long/path/index-combined.js"
         template:
           name: 'combined'
           moduleName: "index-combined"
