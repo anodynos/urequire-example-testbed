@@ -3,7 +3,7 @@
 [![Build Status](https://travis-ci.org/anodynos/urequire-example.png)](https://travis-ci.org/anodynos/urequire-example)
 [![Up to date Status](https://david-dm.org/anodynos/urequire-example.png)](https://david-dm.org/anodynos/urequire-example.png)
 
-A simple example project using [urequire](http://urequire.org) & [grunt-urequire](https://github.com/aearly/grunt-urequire).
+An example project using [urequire](http://urequire.org) & [grunt-urequire](https://github.com/aearly/grunt-urequire).
 
 Provides boilerplate & grunt/urequire config for cross module systems development and cross runtimes deployment.
 
@@ -14,22 +14,19 @@ It comes with tests that run on nodejs, phantomjs and browser (Web/AMD & Web/Scr
 ### Download and install
 
 ```bash
-... $ git clone anodynos/urequire-example
+$ git clone anodynos/urequire-example && cd urequire-example
 
-... $ cd urequire-example
-
-../urequire-example $ npm install
-
-../urequire-example $ bower install
+$ npm install && bower install
 ```
 
 ### A full clean build & test.
 
-```bash
-../urequire-example $ grunt release
-```
+Run the default build & specs test with `$ grunt`, that build with UMD that runs on nodejs & browser.
+The HTML specs are automatically generated
+i
 
-### Watch file changes (code & specs), rebuilding *only* what is changed & running tests each time.
+
+### Watch file changes (code & specs), rebuilding & running specs *only* when stuff _really_ changes.
 
 ```bash
 ../urequire-example $ grunt watch:dev
@@ -37,12 +34,14 @@ It comes with tests that run on nodejs, phantomjs and browser (Web/AMD & Web/Scr
 
 ### I want more
 
-For more uRequire config examples with comments etc see :
+For the most simple example, check out
 
-* uBerscore's [full grunt config](https://github.com/anodynos/uBerscore/blob/bb6fa0ae60105bec381eae64b8a96d1579450f22/Gruntfile_CommentsExamples.coffee) or its latest version.
+
+For more advanced uRequire config examples with comments etc see :
+
+* uBerscore's [full grunt config](https://github.com/anodynos/uBerscore) or the one with comments.
 
 * uRequire's [config docs](https://github.com/anodynos/uRequire/blob/master/source/code/config/MasterDefaultsConfig.coffee.md)
-
 
 # License
 

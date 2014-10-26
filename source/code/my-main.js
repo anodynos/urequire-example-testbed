@@ -3,7 +3,6 @@
      noConflict: true
 }});
 
-
 define(['models/Person'], function (Person) {
     var add = require('calc/add');
 
@@ -18,10 +17,10 @@ define(['models/Person'], function (Person) {
 
     if (__isNode) {
         var nodeOnlyVar = require('nodeOnly/runsOnlyOnNode');
-        console.log(require('util').inspect(nodeOnlyVar));
+        console.log("Runs only on node:", require('util').inspect(nodeOnlyVar));
     }
 
-    return _.clone({ // _ is injected by uRequire in the whole bundle
+    return _.clone({ // Note: `_` is injected by uRequire in the whole bundle
         person: person,
         add: add,
         calc: calc,
