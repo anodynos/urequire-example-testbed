@@ -7,5 +7,3 @@ module.exports = (greeting = "Mars...! Its seems no args were passed.")->
     body ->
       div '#Hello,',-> greeting
       persons ['Leonardo', 'Da Vinci']
-
-

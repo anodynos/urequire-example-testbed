@@ -82,7 +82,10 @@ module.exports = gruntFunction = (grunt) ->
               window.urequireExample = 'Old global `urequireExample`';
               window.uEx = 'Old global `uEx`';
               """
-            debugLevel: 0
+            mochaOptions: '-R dot'
+            debugLevel: 40
+
+      specWatch: derive: ['spec'], watch: 1000
 
       specMin:
         derive: ['spec']
