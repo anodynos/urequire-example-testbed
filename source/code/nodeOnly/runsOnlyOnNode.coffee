@@ -1,1 +1,1 @@
-module.exports = _.keys(require 'path')[0..2]
+module.exports = _.keys(require 'path' )[0..2]

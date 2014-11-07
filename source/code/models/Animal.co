@@ -1,5 +1,3 @@
-define ->
-
+module.exports =
   class Animal
-
     eat: (food)-> "ate #{food}"

@@ -1,7 +1,7 @@
 # All imports can be automatically injected via urequire-rc-import
 # See 'specHelpers' imports injected by uRequire:spec task
 
-uExLocal = require 'urequire-example'
+uExLocal = require 'urequire-example-testbed'
 
 describe "uRequire:", ->
 
@@ -11,11 +11,14 @@ describe "uRequire:", ->
     """, ->
 
       it "registers globals 'urequireExample' & 'uEx'", ->
+        # added in module my-main it self
         eq window.urequireExample, uExLocal
         eq window.uEx, uExLocal
+        # added in urequire:spec
+        eq window.myMain, uExLocal
 
       # `window.urequireExample` & `window.uEx` must be set on browser
-      # BEFORE loading 'urequire-example' (in SpecRunner_XXX.html)
+      # BEFORE loading 'urequire-example-testbed' (in SpecRunner_XXX.html)
       it "noConflict() returns module & sets old values to globals 'urequireExample', 'uEx'", ->
         eq window.uEx.noConflict(), uExLocal
 

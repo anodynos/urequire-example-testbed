@@ -2,16 +2,16 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>urequire-example: 'UMDplain', loader: 'AMD/RequireJS' }</title>
+    <title>urequire-example-testbed: 'UMDplain', loader: 'AMD/RequireJS' }</title>
   </head>
 
   <body>
-    <h1>urequire-example specs, { template: 'UMDplain', loader: 'AMD/RequireJS' }</h1>
+    <h1>urequire-example-testbed specs, { template: 'UMDplain', loader: 'AMD/RequireJS' }</h1>
 
     <strong> ** uRequire note: **</strong>
     <ul>
       <li>Dependencies (eg. `lodash`) are loaded through RequireJs loader (using `rjs.paths`)
-      <li>'urequire-example' dependency is loading through `rjs.baseUrl`, which in turn loads all bundle dependencies *as seperate files*).
+      <li>'urequire-example-testbed' dependency is loading through `rjs.baseUrl`, which in turn loads all bundle dependencies *as seperate files*).
     </ul>
     <p/>Check console's output
   </body>
@@ -26,14 +26,7 @@
       // all libraries are now relative to the bundle/baseUrl
       paths: {
         lodash: "../../bower_components/lodash/dist/lodash.min",
-        //lodash: "../../bower_components/underscore/underscore-min", // drop in 'alternative' of lodash :-)
-        // ** uRequire note: **
-        // if the following 'rjs.paths.urequire-example' exists,
-        //  it mandates we are loading the OPTIMIZED version,
-        // else
-        //  we load 'urequire-example' dependency (and its contained deps) through `rjs.baseUrl`.
-        // this is the only change needed!
-        //,'urequire-example' : "../../build/urequire-example"
+        teacup: "../../bower_components/teacup/lib/teacup"
       },
 
       shim: {
@@ -41,13 +34,13 @@
       }
     });
 
-    // lets create two globals, that will be hijacked by urequire-example when loaded
+    // lets create two globals, that will be hijacked by urequire-example-testbed when loaded
     window.urequireExample = 'Old global `urequireExample`';
     window.uEx = 'Old global `uEx`';
 
-    console.log("LOADING 'urequire-example' via requireJs....");
-    require(['urequire-example'], function(uEx_local){
-      console.log("...LOADED urequire-example via requireJs!");
+    console.log("LOADING 'urequire-example-testbed' via requireJs....");
+    require(['my-main'], function(uEx_local){
+      console.log("...LOADED urequire-example-testbed via requireJs!");
 
       console.log("uEx_local local var", uEx_local.person);
       console.log("uEx global var", uEx.person);

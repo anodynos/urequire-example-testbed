@@ -2,15 +2,15 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>urequire-example : 'combined', loader: '&ltscript/&gt' }</title>
+    <title>urequire-example-testbed : 'combined', loader: '&ltscript/&gt' }</title>
   </head>
 
   <body>
-    <h1>urequire-example : 'combined', loader: '&ltscript/&gt' }</h1>
+    <h1>urequire-example-testbed : 'combined', loader: '&ltscript/&gt' }</h1>
 
     <strong> ** uRequire note: **</strong>
     <ul>
-      <li>urequire-example-min.js is loaded as a simple &ltscript/&gt, WITHOUT any trace of RequireJs loader or configuration!
+      <li>urequire-example-testbed-min.js is loaded as a simple &ltscript/&gt, WITHOUT any trace of RequireJs loader or configuration!
       <li>Dependencies (eg. `lodash` or `underscore`) must be &ltscript/&gt loaded BEFORE it, exposing the global '_',
           which is then acquired by `uRequire`'s special build with `combined` template.
     </ul>
@@ -19,6 +19,8 @@
 
   <!--We load our 'dependencies' first, exposing globals (eg '_')-->
   <script src="../../bower_components/lodash/dist/lodash.min.js"></script>
+  <script src="../../bower_components/teacup/lib/teacup.js"></script>
+
   <!--<script src="../../bower_components/underscore/underscore-min.js"></script>-->
 
   <script>
@@ -29,11 +31,11 @@
   </script>
 
   <!-- Loading as plain JS: it rootExports `mylib` & `mylib` as window/global vars -->
-  <script src="../../build/minified/urequire-example-min.js"></script>
+  <script src="../../build/minified/urequire-example-testbed-min.js"></script>
 
   <!--Now lets run some examples/tests!-->
   <script>
-    console.log("...LOADED urequire-example via script tag!", uEx);
+    console.log("...LOADED urequire-example-testbed via script tag!", uEx);
 
     console.log("uEx global var", uEx.person);
     console.log("urequireExample global var", urequireExample.person);

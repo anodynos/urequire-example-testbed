@@ -1,9 +1,9 @@
 # All imports can be automatically injected via urequire-rc-import
 # See 'specHelpers' imports injected by uRequire:spec task
 
-uExLocal = require 'urequire-example'
+uExLocal = require 'urequire-example-testbed'
 
-describe " 'urequire-example' has:", ->
+describe " 'urequire-example-testbed' has:", ->
 
   it "person.fullName()", ->
     eq uExLocal.person.fullName(), 'John Doe'

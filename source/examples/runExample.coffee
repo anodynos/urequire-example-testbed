@@ -2,8 +2,8 @@ fs = require 'fs'
 _ = (_B = require 'uberscore')._
 
 for buildPath in [
-  'build/UMD/urequire-example'
-  'build/minified/urequire-example-min'
+  'build/UMD/my-main'
+  'build/minified/urequire-example-testbed-min'
 ]
   try
     if fs.existsSync require.resolve('../../' + buildPath)
