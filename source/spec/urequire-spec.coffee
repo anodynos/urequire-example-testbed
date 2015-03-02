@@ -1,5 +1,7 @@
-# All imports can be automatically injected via urequire-rc-import
-# See 'specHelpers' imports injected by uRequire:spec task
+# All specHelper imports are injected via `urequire-rc-import`
+# See 'specHelpers' imports in uRequire:spec task
+
+# `uEx` var injected by `dependencies: imports`
 
 uExLocal = require 'urequire-example-testbed'
 
@@ -14,6 +16,7 @@ describe "uRequire:", ->
         # added in module my-main it self
         eq window.urequireExample, uExLocal
         eq window.uEx, uExLocal
+        eq window.uEx, uEx
         # added in urequire:spec
         eq window.myMain, uExLocal
 

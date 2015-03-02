@@ -1,7 +1,7 @@
 {
   "name": "urequire-example-testbed",
   "description": "Example testbed for uRequire.",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "homepage": "https://github.com/anodynos/urequire-example-testbed",
   "author": {
     "name": "Agelos Pikoulas",
@@ -42,9 +42,9 @@
     "grunt": "0.4.5",
     "grunt-contrib-watch": "0.5.x",
     "grunt-mocha": "*",
-    "grunt-urequire": "0.7.x",
+    "grunt-urequire": "^0.7.2",
     "uberscore": "0.0.17",
-    "urequire": "^0.7.0-beta6",
+    "urequire": "^0.7.0-beta.14",
     "urequire-rc-inject-version": "^0.1.2",
     "urequire-rc-import-keys": "0.1.x",
     "urequire-rc-less": "0.1.x",

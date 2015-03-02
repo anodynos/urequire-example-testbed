@@ -2,12 +2,13 @@ module.exports = (grunt) ->
   gruntConfig =
     urequire:
       _all:
-        dependencies: imports:
-          lodash: ['_']
+        dependencies:
+          paths: bower: true
+          imports: lodash: ['_']
           # 'when/callbacks': 'whenCallbacks'
         clean: true
         template: banner: true
-        #debugLevel: 50
+#        debugLevel: 50
         #verbose:true
 
       _defaults: #for library only
@@ -58,8 +59,12 @@ module.exports = (grunt) ->
       min:
         derive: ['dev', '_defaults']
         dstPath: "build/minified/urequire-example-testbed-min.js"
-        optimize: true # true means 'uglify2'
+        optimize: uglify2: output:
+          beautify: true
+          compress: false
+          mangle: false
         rjs: preserveLicenseComments: false
+        debugLevel: 0
         #rootExports: noConflict: false # makes min fail cause it overrides module's `noConflict` setting
 
       spec:
@@ -70,12 +75,8 @@ module.exports = (grunt) ->
         dstPath: "build/spec"
         clean: true
         globalWindow: ['urequire-spec']
-        rjs: shim:
-          lodash: {deps: [], exports: '_'}
-          uberscore: {deps: ['lodash'], exports: '_B'} # shims are utilized by `urequire-ab-specrunner`
 
         dependencies:
-          paths: bower: true
           imports:
             chai: 'chai'
             lodash: ['_']
@@ -120,17 +121,12 @@ module.exports = (grunt) ->
       specDevWatch:
         derive: ['specDev', 'specWatch']
 
-    watch:
-      options: spawn: false
-      UMD:
-        files: ["source/code/**/*", "source/spec/**/*"]
-        tasks: ['min' , 'spec']
-
   _ = require 'lodash'
   splitTasks = (tasks)-> if _.isArray tasks then tasks else _.filter tasks.split /\s/
   grunt.registerTask shortCut, "urequire:#{shortCut}" for shortCut of gruntConfig.urequire
   grunt.registerTask shortCut, splitTasks tasks for shortCut, tasks of {
     default: "UMD specRun min specDevRun"
+    develop: "dev specDevWatch"
     all: "UMD specRun UMD specDevRun dev specDevRun min specRun min specDevRun"
   }
   grunt.loadNpmTasks task for task of grunt.file.readJSON('package.json').devDependencies when task.lastIndexOf('grunt-', 0) is 0
