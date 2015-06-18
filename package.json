@@ -1,7 +1,7 @@
 {
   "name": "urequire-example-testbed",
   "description": "Example testbed for uRequire.",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "homepage": "https://github.com/anodynos/urequire-example-testbed",
   "author": {
     "name": "Agelos Pikoulas",
@@ -29,7 +29,6 @@
     "node": ">=0.10"
   },
   "dependencies": {
-    "grunt": "^0.4.5",
     "lodash": "*",
     "teacup": "*",
     "when": "*"
