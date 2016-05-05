@@ -8,7 +8,7 @@ module.exports = (grunt) ->
           # 'when/callbacks': 'whenCallbacks'
         clean: true
         template: banner: true
-#        debugLevel: 50
+        debugLevel: 0
         #verbose:true
 
       _defaults: #for library only
@@ -17,10 +17,9 @@ module.exports = (grunt) ->
         path: "source/code"
         filez: [/./, '!uRequireConfig.coffee']
         resources: [
+          'babeljs'
           'inject-version'
-
           ['less', {$srcMain: 'style/myMainStyle.less', compress: true}]
-
           ['teacup-js', tags: 'html, doctype, body, div, ul, li']
         ]
         dependencies:
